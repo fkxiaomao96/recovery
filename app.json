@@ -36,12 +36,6 @@
         "selectedIconPath": "assets/images/index1.png"
       },
       {
-        "pagePath": "pages/findPage/findPage",
-        "text": "发现",
-        "iconPath": "assets/images/find0.png",
-        "selectedIconPath": "assets/images/find1.png"
-      },
-      {
         "pagePath": "pages/myInfo/myInfo",
         "text": "我的",
         "iconPath": "assets/images/my0.png",

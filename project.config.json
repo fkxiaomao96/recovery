@@ -1,137 +1,107 @@
 {
-	"description": "项目配置文件。",
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "1.5.3",
-	"appid": "wxc8884c9a5132aa7a",
-	"projectname": "%E6%9F%A0%E6%AA%AC%E5%9B%9E%E6%94%B6",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 12,
-			"list": [
-				{
-					"id": -1,
-					"name": "个人",
-					"pathName": "pages/myInfo/myInfo",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的预约",
-					"pathName": "pages/myInfo/myReservation/myReservation",
-					"query": ""
-				},
-				{
-					"id": 2,
-					"name": "sy",
-					"pathName": "pages/index/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的贡献",
-					"pathName": "pages/myInfo/myContribution/myContribution",
-					"query": ""
-				},
-				{
-					"id": 4,
-					"name": "我的积分",
-					"pathName": "pages/findPage/myPoints/myPoints",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "发现",
-					"pathName": "pages/findPage/findPage",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "申领旧衣",
-					"pathName": "pages/findPage/lemonCommonweal/oldClothes/oldClothes",
-					"query": ""
-				},
-				{
-					"id": 7,
-					"name": "兑换订单",
-					"pathName": "pages/findPage/myPoints/pointsOrder/pointsOrder",
-					"query": ""
-				},
-				{
-					"id": 8,
-					"name": "兑换商品",
-					"pathName": "pages/findPage/myPoints/exchange/exchange",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "dotai",
-					"pathName": "pages/findPage/lemonCommonweal/gyDynamic/gyDynamic",
-					"query": ""
-				},
-				{
-					"id": 10,
-					"name": "关于柠檬",
-					"pathName": "pages/findPage/lemonCommonweal/gyDynamic/newsInformation/newsInformation",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "积分交易",
-					"pathName": "pages/findPage/myPoints/integralTransaction/integralTransaction",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "123",
-					"pathName": "pages/lemonRecovery/admin/admin",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "pages/lemonRecovery/admin/admin",
-					"pathName": "pages/lemonRecovery/admin/admin",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件。",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.7.7",
+  "appid": "wx8545400ab5b67cc8",
+  "projectname": "%E6%9F%A0%E6%AA%AC%E5%9B%9E%E6%94%B6",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "个人",
+          "pathName": "pages/myInfo/myInfo",
+          "query": ""
+        },
+        {
+          "name": "我的预约",
+          "pathName": "pages/myInfo/myReservation/myReservation",
+          "query": ""
+        },
+        {
+          "name": "sy",
+          "pathName": "pages/index/index",
+          "query": ""
+        },
+        {
+          "name": "我的贡献",
+          "pathName": "pages/myInfo/myContribution/myContribution",
+          "query": ""
+        },
+        {
+          "name": "我的积分",
+          "pathName": "pages/findPage/myPoints/myPoints",
+          "query": ""
+        },
+        {
+          "name": "申领旧衣",
+          "pathName": "pages/findPage/lemonCommonweal/oldClothes/oldClothes",
+          "query": ""
+        },
+        {
+          "name": "兑换订单",
+          "pathName": "pages/findPage/myPoints/pointsOrder/pointsOrder",
+          "query": ""
+        },
+        {
+          "name": "兑换商品",
+          "pathName": "pages/findPage/myPoints/exchange/exchange",
+          "query": ""
+        },
+        {
+          "name": "dotai",
+          "pathName": "pages/findPage/lemonCommonweal/gyDynamic/gyDynamic",
+          "query": ""
+        },
+        {
+          "name": "关于柠檬",
+          "pathName": "pages/findPage/lemonCommonweal/gyDynamic/newsInformation/newsInformation",
+          "query": ""
+        },
+        {
+          "name": "积分交易",
+          "pathName": "pages/findPage/myPoints/integralTransaction/integralTransaction",
+          "query": ""
+        },
+        {
+          "name": "123",
+          "pathName": "pages/lemonRecovery/admin/admin",
+          "query": ""
+        },
+        {
+          "name": "pages/lemonRecovery/admin/admin",
+          "pathName": "pages/lemonRecovery/admin/admin",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
 }
