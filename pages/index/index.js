@@ -10,15 +10,15 @@ var app = getApp()
 Page({
   //初始化数据
   data: {
-    index:0,
-    doorTime:null,
-    yuyueAdress:null,
-    adressInfo:null,
-    cellYou:null,
-    phone:null,
-    remark:null,
-    startTime:new Date(),
-    region: ['观山湖区', '云岩区-大营坡', '云岩区', '南明区', '白云区','乌当区'],
+    index: 0,
+    doorTime: null,
+    yuyueAdress: null,
+    adressInfo: null,
+    cellYou: null,
+    phone: null,
+    remark: null,
+    startTime: new Date(),
+    region: ['观山湖区', '云岩区-大营坡', '云岩区', '南明区', '白云区', '乌当区'],
     customItem: '全部'
   },
 
@@ -43,18 +43,18 @@ Page({
   showModal: function (msg) {
     wx.showModal({
       title: '提示',
-      content:msg,
+      content: msg,
       showCancel: false,
     });
   },
 
   //回收清单轮播提示
-  bindtapShow:function(e){
+  bindtapShow: function (e) {
     this.showModal("5KG以上上门取件。1斤旧衣兑换1积分。1斤废纸及其他物资兑换0.3积分。仅支持贵阳地区（两城区上班日晚上及周末）");
   },
 
   //提交预约
-  submitForm:function(e){
+  submitForm: function (e) {
     var that = this;
 
     //上门时间
@@ -62,7 +62,7 @@ Page({
     if (app.checkInput(doorTime)) {
       that.showModal("上门时间不能为空!");
       return;
-    }else{
+    } else {
       if (!app.checkInput(e.detail.value.remark)) doorTime += ",备注:" + e.detail.value.remark;
     }
 
@@ -97,44 +97,47 @@ Page({
     //保存预约
     var url = app.config.basePath_web + "api/exe/save";
     //请求头
-    var header = { cookie: wx.getStorageSync("cookie"), "Content-Type": "application/x-www-form-urlencoded" };
+    var header = {
+      cookie: wx.getStorageSync("cookie"),
+      "Content-Type": "application/x-www-form-urlencoded"
+    };
     //参数
     var data = {
       timeStamp: wx.getStorageSync("time"),
       token: wx.getStorageSync("token"),
       reqJson: JSON.stringify({
-        nameSpace: 'lemonRecovery',           //预约表
+        nameSpace: 'lemonRecovery', //预约表
         scriptName: 'Query',
         cudScriptName: 'Save',
         nameSpaceMap: {
           rows: [{
-            state: 0,                         //预约状态,0=未处理,1=已处理,2=不处理
-            personalId: wx.getStorageSync("personalId"),  //用户id
-            doorTime: doorTime,               //什么时间
-            yuyueAdress: yuyueAdress,         //预约地点
-            adressInfo: adressInfo,           //详细地址
-            cellYou: cellYou,                 //对您称呼
-            phone:phone,                      //联系电话
+            state: 0, //预约状态,0=未处理,1=已处理,2=不处理
+            personalId: wx.getStorageSync("personalId"), //用户id
+            doorTime: doorTime, //什么时间
+            yuyueAdress: yuyueAdress, //预约地点
+            adressInfo: adressInfo, //详细地址
+            cellYou: cellYou, //对您称呼
+            phone: phone, //联系电话
           }]
         }
       })
     };
     //发送请求
-    app.request.reqPost(url,header,data,function(res){
+    app.request.reqPost(url, header, data, function (res) {
       that.showModal("预约成功!");
       that.closeForm(that);
     });
   },
 
   //清空表单
-  closeForm:function(that){
+  closeForm: function (that) {
     that.setData({
       doorTime: null,
       yuyueAdress: null,
       adressInfo: null,
       cellYou: null,
       phone: null,
-      remark:null,
+      remark: null,
     });
   },
 
@@ -166,7 +169,7 @@ Page({
         scriptName: "com.dahuo.plugin.impl.WxLgPlugin",
         nameSpaceMap: {
           rows: [{
-            openid: wx.getStorageSync('openid'),         //用户id
+            openid: wx.getStorageSync('openid'), //用户id
             realname: that.data.userInfo.nickName,
             avatarUrl: that.data.userInfo.avatarUrl,
             appId: app.globalData.loginAppid,
@@ -179,13 +182,13 @@ Page({
       function (res) {
         console.log(res);
         if (res.data.status === 1) {
-          if (res.data.rows == null){
-            console.log("null,null"+res);
+          if (res.data.rows == null) {
+            console.log("null,null" + res);
             that.loginRequest(that);
             return;
           };
           //提示
-         // wx.showToast({ title: res.data.message, icon: 'ok', duration: 2000, });
+          // wx.showToast({ title: res.data.message, icon: 'ok', duration: 2000, });
           //得到cookie
           var cookie = res.header["Set-Cookie"].split(",")[0].split(";")[0] + ";";
 
@@ -203,9 +206,14 @@ Page({
           //获取我的贡献数据
           that.getContribtion(that);
         }
-      }, function (res) {
+      },
+      function (res) {
         //提示
-        wx.showToast({ title: "请求失败!", icon: 'loading', duration: 2000, });
+        wx.showToast({
+          title: "请求失败!",
+          icon: 'loading',
+          duration: 2000,
+        });
       });
   },
 
@@ -234,11 +242,14 @@ Page({
           function (res) {
             app.globalData.openid = res.data.openid;
             wx.setStorageSync('openid', res.data.openid);
-            that.setData({ openid: res.data.openid });
+            that.setData({
+              openid: res.data.openid
+            });
             //自动登录第二步，获取微信用户
             that.getUserInfo(that);
           });
-      }, fail: function (res) {
+      },
+      fail: function (res) {
         console.log(res);
       }
     });
@@ -254,7 +265,9 @@ Page({
           success: function (res) {
             app.globalData.userInfo = res.userInfo
             wx.setStorageSync('userinfo', res.userInfo);
-            that.setData({ userInfo: res.userInfo });
+            that.setData({
+              userInfo: res.userInfo
+            });
             ////自动登录第三步，发送登录服务器请求
             that.loginRequest(that);
           }
@@ -267,17 +280,20 @@ Page({
   getContribtion: function (that) {
     var url = app.config.basePath_web + "api/exe/get";
     //请求头
-    var header = { cookie: wx.getStorageSync("cookie"), "Content-Type": "application/x-www-form-urlencoded" };
+    var header = {
+      cookie: wx.getStorageSync("cookie"),
+      "Content-Type": "application/x-www-form-urlencoded"
+    };
     //参数
     var data = {
       timeStamp: wx.getStorageSync("time"),
       token: wx.getStorageSync("token"),
       reqJson: JSON.stringify({
-        nameSpace: 'myContribution',           //我的贡献表
+        nameSpace: 'myContribution', //我的贡献表
         scriptName: 'Query',
         nameSpaceMap: {
           rows: [{
-            personalId: wx.getStorageSync("personalId"),  //用户id
+            personalId: wx.getStorageSync("personalId"), //用户id
           }]
         }
       })
@@ -302,21 +318,24 @@ Page({
   setContribtion: function (that) {
     var url = app.config.basePath_web + "api/exe/save";
     //请求头
-    var header = { cookie: wx.getStorageSync("cookie"), "Content-Type": "application/x-www-form-urlencoded" };
+    var header = {
+      cookie: wx.getStorageSync("cookie"),
+      "Content-Type": "application/x-www-form-urlencoded"
+    };
     console.log(that.data.userInfo);
     //参数
     var data = {
       timeStamp: wx.getStorageSync("time"),
       token: wx.getStorageSync("token"),
       reqJson: JSON.stringify({
-        nameSpace: 'myContribution',           //我的贡献表
+        nameSpace: 'myContribution', //我的贡献表
         scriptName: 'Query',
         cudScriptName: 'Save',
         nameSpaceMap: {
           rows: [{
-            avatarUrl: that.data.userInfo.avatarUrl,//头像
-            userName: that.data.userInfo.nickName,//名称
-            personalId: wx.getStorageSync("personalId"),  //用户id
+            avatarUrl: that.data.userInfo.avatarUrl, //头像
+            userName: that.data.userInfo.nickName, //名称
+            personalId: wx.getStorageSync("personalId"), //用户id
           }]
         }
       })

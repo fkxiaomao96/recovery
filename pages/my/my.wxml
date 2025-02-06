@@ -1,0 +1,42 @@
+<view class="container">
+  <!-- 个人信息区域 -->
+  <view class="profile-section">
+    <view class="profile-header">
+      <text class="username">I. Fname</text>
+      <text class="user-type">(Eco Guardian)</text>
+    </view>
+    
+    <view class="avatar-container">
+      <view class="avatar-circle">
+        <image class="plant-icon" src="/images/plant-icon.png" />
+      </view>
+    </view>
+    
+    <view class="badge">
+      <text>Eco Guardian</text>
+    </view>
+  </view>
+
+  <!-- 统计信息区域 -->
+  <view class="stats-section">
+    <view class="stat-row">
+      <text class="stat-label">Total veling Count</text>
+      <view class="stat-value-container">
+        <text class="stat-value">0</text>
+        <text class="arrow">></text>
+      </view>
+    </view>
+    
+    <view class="stat-row">
+      <text class="stat-label">Total Deposit</text>
+      <view class="stat-value-container">
+        <text class="stat-value">0 kg</text>
+        <text class="stat-currency">0.00 yan</text>
+        <text class="arrow">></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 按钮区域 -->
+  <button class="view-orders-btn">View Orders</button>
+</view>

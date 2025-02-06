@@ -17,7 +17,7 @@ page {
 /*背景*/
 .huishou_bg {
   width: 100%;
-  height: 730rpx;
+  height: 640rpx;
   background-image: url(https://static.daho.club/static/upload/LemonRecovery/assets/images/bg.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -27,10 +27,8 @@ page {
 .huishou_form {
   width: 96%;
   height: 600rpx;
-  position: relative;
   margin: 0rpx auto;
   background-color: #fff;
-  top: 170rpx;
   border-radius: 10px;
 }
 
